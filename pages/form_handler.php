@@ -12,6 +12,7 @@
             //definisco username e password corretti
             $usernameCorretto = "nomeACaso";
             $passwordCorretta = "PasswordUltraSicura"; 
+            $login = false;
             //funzione di controllo dell'input utente
             function controlloInput($dato){
                 $datoSicuro = $dato;
@@ -52,13 +53,17 @@
             //controllo che password e Username inseriti dall'utente siano corretti
             if($username === $usernameCorretto && $password === $passwordCorretta){
                 echo "<h1 class='text'>Accesso Effettuato! Benvenuto, $username!</h1>";
+                $login = true;
             }else if($username !== $usernameCorretto){
                 echo "<h1 class='text'>Il nome utente inserito non è corretto</h1>";
             }else if($password !==$passwordCorretta){
                 echo "<h1 class='text'>La password inserita non è corretta</h1>";
             }
-
-            echo "<a href='../index.html'>logout</a>";
+            if($login){
+                echo "<a href='../index.html'>logout</a>";
+            }else{
+                echo "<a href='../index.html'>Torna alla Homepage</a>";
+            }
         ?>
     </body>
 
